@@ -1,11 +1,30 @@
 .wrapper {
-  padding-top: 50px;
   background: #ECEFF1;
+  min-height: 80%;
   height: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  padding: 20px;
-  justify-content: space-around;
-  align-content: flex-start;
+  display: block;
   overflow: auto;
+}
+.nav-bar{
+  width: 100%;
+  position: fixed;
+  background-color:#5133A4; 
+  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+  z-index: 99;
+  white-space: nowrap;
+}
+
+footer{
+  width: 100%;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #5137A1;
+  height: 30px;
+  bottom: 0;
+position: fixed;
+}
+
+footer p{
+margin: 1%;
+
 }

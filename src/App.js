@@ -22,7 +22,7 @@ class App extends Component {
     count: 0,
     friends,
     topCount: 0,
-    winLose: "",
+    message: ""
   };
 // handleIncrement increases this.state.count by 1
 handleIncrement = () => {
@@ -31,7 +31,6 @@ handleIncrement = () => {
   this.setState({ count: this.state.count + 1, topCount: this.state.topCount + 1});
   this.handleShuffle();
   
-  // this.setState({topCount: this.state.count});
 
 };
 
@@ -43,9 +42,9 @@ gameOver = () => {
       console.log(this.state.topCount);
     });
   }
-  this.state.friends.forEach(card => {
+  this.state.friends.forEach(friends => {
     console.log(friends);
-    card.count = 0;
+    friends.count = 0;
   });
   alert(`Game Over :( \nscore: ${this.state.count}`);
   this.setState({count: 0});
@@ -53,12 +52,17 @@ gameOver = () => {
 }
 
 resetScore = () => {
-  if (this.state.count >= 12) {
+  if (this.state.count >= 12 ) {
     this.state.count = -1;
     this.state.topCount = -1;
     
   }
 };
+
+// PSEUDO-CODE  
+//IF friends.id === this.friends.id
+//restart else
+// handleIncrement()
 
 handleShuffle = () => {
   let shuffledFriends = shuffleFriends(friends);
@@ -69,7 +73,15 @@ handleShuffle = () => {
   render() {
     return (
       <Wrapper>
-        <Title>Friends List Score:{this.state.count} | Top Score: {this.state.topCount}</Title>
+        <div className="nav-bar">
+        <Title>Clicky Game</Title>
+        <Title>Click an image to begin!</Title> 
+        <Title>Score:{this.state.count} | Top Score:{this.state.topCount}</Title></div>
+        <div className="header">
+        <h1>Clicky Game!</h1><br/>
+        <p>Click on an image to earn points, but don't click on any more than once!</p>
+        </div>
+        <div className="cardWrapper">
         {this.state.friends.map(friend => (
           <FriendCard
             handleIncrement={this.handleIncrement}
@@ -78,7 +90,8 @@ handleShuffle = () => {
             image={friend.image}
           
           />
-        ))}
+        ))}</div> 
+        <footer><p>by Alejandro</p></footer>
       </Wrapper>
     );
   }
