@@ -8,5 +8,5 @@ To play the game first you have to click on any card, be aware not to click on t
 
 -Restart score when same card is clicked and save highest score
 
-### Built with MERN
+### Built with REACT
 
